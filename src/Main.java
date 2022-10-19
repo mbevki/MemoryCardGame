@@ -246,15 +246,10 @@ public class Main {
                 }
 
                 System.out.println("Second position:");
-                do {
+
                 System.out.print("\t> Choose row (1-4): ");
                 row2 = userInput(row2);
-                    if (!board[row2 - 1][col2 - 1].equals("#")) {
-                        System.out.println("-------------------------------------------------------");
-                        System.out.println("**You already chose that position!! Try again...");
-                        System.out.println("-------------------------------------------------------");
-                    }
-                } while (!board[row2 - 1][col2 - 1].equals("#"));
+
 //            do{
 //                row2 = scan.nextInt();
 //                if(row2 < 1 || row2 > 4){
