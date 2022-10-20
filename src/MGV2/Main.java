@@ -1,4 +1,4 @@
-package MemoryGameVersion2;
+package MGV2;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -37,30 +37,22 @@ public class Main {
     }
     public static void drawValue(){
         Random random = new Random();
-        ArrayList<String> numbers = new ArrayList<>();
+        ArrayList<String> character = new ArrayList<>();
+
 //      Filling the ArrayList with numbers
-        numbers.add("A");
-        numbers.add("B");
-        numbers.add("C");
-        numbers.add("D");
-        numbers.add("E");
-        numbers.add("F");
-        numbers.add("G");
-        numbers.add("H");
-        numbers.add("A");
-        numbers.add("B");
-        numbers.add("C");
-        numbers.add("D");
-        numbers.add("E");
-        numbers.add("F");
-        numbers.add("G");
-        numbers.add("H");
+        for(int i = 0; i < 2; i++){
+            char c = 'A';
+            for(int j = 0; j < (4*4)/2; j++){
+                character.add(String.valueOf(c));
+                c++;
+            }
+        }
 //      Sorting them in a random position
         for(int i = 0; i<4; i++){
             for(int j = 0; j<4; j++){
-                int randomNum = random.nextInt(numbers.size());
-                boardValue[i][j] = numbers.get(randomNum);
-                numbers.remove(randomNum);
+                int randomNum = random.nextInt(character.size());
+                boardValue[i][j] = character.get(randomNum);
+                character.remove(randomNum);
             }
         }
     }
@@ -79,6 +71,7 @@ public class Main {
                 do{
                     System.out.print("\t> Chose row (1-4): ");
                     inputRow1 = userInput();
+
                     System.out.print("\t> Chose column (1-4): ");
                     inputCol1 = userInput();
                     if (!board[inputRow1 - 1][inputCol1 - 1].equals("#")) {
@@ -129,6 +122,12 @@ public class Main {
     public static int userInput(){
         int input;
         do{
+//          Validation that input is a number
+            while(!scan.hasNextInt()){
+                System.out.print("**That's not a number! Pleas enter a number: ");
+                scan.next();
+                }
+
             input = scan.nextInt();
             if(input < 1 || input > 4){
                 System.out.print("\t>> Enter a number between (1-4): ");
@@ -175,7 +174,6 @@ public class Main {
     }
     public static void endGame(){
         System.out.println("******** GAME FINISHED! ********");
-        scan.close();
         for(int i = 0; i<4; i++){
             for(int j = 0; j<4; j++){
                 System.out.print(boardValue[i][j] + " ");
