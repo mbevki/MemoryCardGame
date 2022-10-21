@@ -1,4 +1,4 @@
-package MGV4;
+package MemoryCardGame;
 
 import java.util.Scanner;
 
@@ -20,20 +20,20 @@ public class Game{
     public static Scanner getScan() {
         return scan;
     }
-////////////////////////////////////////////////////////////////////////////////////////
     public static void setScan(Scanner scan) {
         Game.scan = scan;
     }
-
+////////////////////////////////////////////////////////////////////////////////////////
     public void loadingScreen(String loadText)throws InterruptedException{
 
         ConsoleLoad consoleHelper = new ConsoleLoad();
         for (int i = 0; i < 20; i++) {
             consoleHelper.animate(i + "", loadText);
             //simulate a piece of task
-            Thread.sleep(400);
+            Thread.sleep(150);
         }
-//        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
     public void showRules(){
         System.out.println("\n\n\n**Welcome to Memory Card Game**");
@@ -51,7 +51,7 @@ public class Game{
         System.out.println("\t> || Enter 3 || Exit!");
         System.out.print("\t> You chose: ");
         int inputChoice = checkInput(1, 3);
-        System.out.println("You chosen option: " + inputChoice);
+        System.out.println("You chose option: " + inputChoice);
     }
     public int checkInput(int min, int max){
         int input;
@@ -89,7 +89,7 @@ public class Game{
     }
     public int parameters(String type){
         int input = 0;
-        System.out.print("Enter how many:\n\t> " + type + "s do you want: ");
+        System.out.print("Enter how many (event number / maximum value is 10):\n\t> " + type + "s do you want: ");
         while(true){
             input = checkInput(1,10);
             if(input%2 != 0)

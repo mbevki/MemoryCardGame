@@ -1,10 +1,10 @@
-package MGV4;
+package MemoryCardGame;
 
 public class Main {
     public static void main(String[] args)throws InterruptedException{
 
         Game newGame = new Game();
-//        newGame.loadingScreen("LOADING");
+        newGame.loadingScreen("LOADING");
         newGame.showRules();
         do{
             newGame.showMenu();
@@ -22,7 +22,3 @@ public class Main {
     }
 }
 
-//    C G E B
-//    G F B D
-//    E H A A
-//    D F H C

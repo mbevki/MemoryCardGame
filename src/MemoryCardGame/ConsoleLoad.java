@@ -1,8 +1,8 @@
-package MGV4;
+package MemoryCardGame;
 
 public class ConsoleLoad {
     private String lastLine = "";
-    private byte anim;
+    private int anim;
     public void print(String line) {
         //clear the last line if longer
         if (lastLine.length() > line.length()) {
@@ -35,8 +35,6 @@ public class ConsoleLoad {
             default:
                 print("[    |     ]");
                 anim = 0;
-
-
         }
         anim++;
     }
